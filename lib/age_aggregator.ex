@@ -18,9 +18,11 @@ defmodule AgeCounter.AgeAggregator do
 	end
 
 	def handle_call({:output_age_counts}, _from, state) do
+		IO.write "["
 		for ageGroup <- state do
-			IO.puts "Age: #{elem(ageGroup, 0)}, Count: #{elem(ageGroup, 1)}"
+			IO.write "(#{elem(ageGroup, 0)},#{elem(ageGroup, 1)}),"
 		end
+		IO.puts "]"
 		{:reply, :ok, state}
 	end
 

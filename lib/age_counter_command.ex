@@ -14,7 +14,6 @@ defmodule AgeCounter.Command do
 	end
 
 	defp parse_args(args) do
-		IO.inspect args
 		{options, _, _} = OptionParser.parse(args, switches: [file: :string, timeout: :integer])
 		options
 	end
